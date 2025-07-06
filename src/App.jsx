@@ -13,7 +13,6 @@ export default function App() {
   return (
     <Router>
       <Routes>
-
         <Route path="/login" element={<Login />} />
         <Route path="/Nav" element={<Navbar3 />} />
         <Route path="/register" element={<Register />} />
