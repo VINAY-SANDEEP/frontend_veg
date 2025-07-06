@@ -7,6 +7,10 @@ export default function Navbar({ toggleSidebar }) {
     localStorage.removeItem('token');
     navigate('/login');
   };
+  const handleRegister = () => {
+    localStorage.removeItem('token');
+    navigate('/register');
+  };
   return (
     <header className="w-full h-16 bg-gradient-to-r from-green-700 via-green-600 to-green-700 text-white shadow-md flex items-center justify-between px-4 lg:px-8">
       {/* Left - Brand & Menu */}
@@ -29,6 +33,12 @@ export default function Navbar({ toggleSidebar }) {
           className="bg-red-600 hover:bg-red-700 transition px-4 py-1.5 rounded-lg text-sm font-medium shadow-sm"
         >
           Logout
+        </button>
+        <button
+          onClick={handleRegister}
+          className="bg-green-600 hover:bg-green-700 transition px-4 py-1.5 rounded-lg text-sm font-medium shadow-sm"
+        >
+          Register
         </button>
       </div>
     </header>
