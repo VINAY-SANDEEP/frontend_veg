@@ -25,7 +25,7 @@ const EditProductModal = ({ product, onClose, onUpdate }) => {
     if (image) data.append('image', image);
 
     try {
-      await axios.put(`http://localhost:3000/products/${product._id}`, data);
+      await axios.put(`https://backend-veg-1.onrender.com/products/${product._id}`, data);
       onUpdate();
       onClose();
     } catch (error) {

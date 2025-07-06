@@ -14,7 +14,7 @@ export default function Login() {
     setError('');
 
     try {
-      const res = await axios.post('http://localhost:3000/login', form);
+      const res = await axios.post('https://backend-veg-1.onrender.com/login', form);
       localStorage.setItem('token', res.data.token);
       navigate('/');
     } catch (err) {

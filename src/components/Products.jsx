@@ -8,7 +8,7 @@ const Products = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/products');
+      const res = await axios.get('https://backend-veg-1.onrender.com/products');
       setProducts(res.data);
     } catch (err) {
       console.error('Error fetching products:', err);
@@ -18,7 +18,7 @@ const Products = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this product?')) return;
     try {
-      await axios.delete(`http://localhost:3000/products/${id}`);
+      await axios.delete(`https://backend-veg-1.onrender.com/products/${id}`);
       setProducts(products.filter((product) => product._id !== id));
     } catch (err) {
       console.error('Delete failed:', err);

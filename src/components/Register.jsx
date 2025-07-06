@@ -14,7 +14,7 @@ export default function Register() {
     setError('');
 
     try {
-      await axios.post('http://localhost:3000/register', form);
+      await axios.post('https://backend-veg-1.onrender.com/register', form);
       alert('Registration successful');
       navigate('/login');
     } catch (err) {
