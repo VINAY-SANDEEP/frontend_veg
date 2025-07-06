@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import { API_URL } from '../data/api';
 const ProductForm = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -39,7 +39,7 @@ const ProductForm = () => {
     if (image) data.append('image', image);
 
     try {
-      const res = await axios.post('https://backend-veg-1.onrender.com/Addproduct', data);
+      const res = await axios.post(`${API_URL}/Addproduct`, data);
       setMessage('✅ Product uploaded successfully!');
        console.log(res)
     } catch (error) {

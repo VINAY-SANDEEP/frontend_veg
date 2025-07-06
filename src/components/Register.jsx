@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import { API_URL } from '../data/api';
 export default function Register() {
   const [form, setForm] = useState({ name: '', email: '', password: '' });
   const [error, setError] = useState('');
@@ -14,7 +14,7 @@ export default function Register() {
     setError('');
 
     try {
-      await axios.post('https://backend-veg-1.onrender.com/register', form);
+      await axios.post(`${API_URL}/register`, form);
       alert('Registration successful');
       navigate('/login');
     } catch (err) {

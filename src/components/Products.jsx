@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import EditProductModal from './EditProductModal';
-
+import { API_URL } from '../data/api';
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [editingProduct, setEditingProduct] = useState(null);
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get('https://backend-veg-1.onrender.com/products');
+      const res = await axios.get(`${API_URL}/products`);
       setProducts(res.data);
     } catch (err) {
       console.error('Error fetching products:', err);
@@ -18,7 +18,7 @@ const Products = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this product?')) return;
     try {
-      await axios.delete(`https://backend-veg-1.onrender.com/products/${id}`);
+      await axios.delete(`${API_URL}/products/${id}`);
       setProducts(products.filter((product) => product._id !== id));
     } catch (err) {
       console.error('Delete failed:', err);

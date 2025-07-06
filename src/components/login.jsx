@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import { API_URL } from '../data/api';
 export default function Login() {
   const [form, setForm] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
@@ -14,7 +14,7 @@ export default function Login() {
     setError('');
 
     try {
-      const res = await axios.post('https://backend-veg-1.onrender.com/login', form);
+      const res = await axios.post(`${API_URL}/login`, form);
       localStorage.setItem('token', res.data.token);
       navigate('/');
     } catch (err) {

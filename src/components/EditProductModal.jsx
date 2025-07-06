@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import { API_URL } from '../data/api';
 const EditProductModal = ({ product, onClose, onUpdate }) => {
   const [formData, setFormData] = useState({ ...product });
   const [image, setImage] = useState(null);
@@ -25,7 +25,7 @@ const EditProductModal = ({ product, onClose, onUpdate }) => {
     if (image) data.append('image', image);
 
     try {
-      await axios.put(`https://backend-veg-1.onrender.com/products/${product._id}`, data);
+      await axios.put(`${API_URL}/${product._id}`, data);
       onUpdate();
       onClose();
     } catch (error) {
